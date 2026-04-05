@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>A Heartfelt Birthday Message 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(ellipse at center, #0a0a2a 0%, #1a0a2e 50%, #0a0015 100%);
+            font-family: 'Playfair Display', 'Georgia', serif;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .glow-particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, #ff6b9d, #ff3366);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatGlow linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) scale(0); opacity: 0; }
+        }
+
+        .floating-heart {
+            position: fixed;
+            pointer-events: none;
+            animation: floatHeart 10s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .letter-container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 107, 157, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #ff9dbb;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .message-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.92);
+            text-align: center;
+        }
+
+        .message-content p {
+            margin-bottom: 1rem;
+        }
+
+        .signature {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 107, 157, 0.3);
+            font-style: italic;
+            color: #ff9dbb;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, #ff3366, #ff6b9d);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            flex: 1;
+            text-align: center;
+        }
+
+        .nav-btn.prev {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+        }
+
+        .page-counter {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .letter-container { padding: 1.5rem; }
+            .message-content { font-size: 0.95rem; }
+            .page-title { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="page-title">A Heartfelt Birthday Message 💖</div>
+        <div class="message-content" id="messageContent"></div>
+        <div class="signature">Forever Yours, TOM 💌</div>
+        <div class="nav-buttons">
+            <button class="nav-btn prev" onclick="goBack()">← Previous</button>
+            <button class="nav-btn next" onclick="goNext()">Next →</button>
+        </div>
+        <div class="page-counter">Page 1 of 8</div>
+    </div>
+
+    <script>
+        const fullMessage = [
+            "If I were asked what a beautiful woman looks like, I would easily tell them about you. 💫",
+            "I would say that your worth isn't in silver, gold, or any material measure we could find. But if anything ever came close, it would definitely be time ⏳—I would tell them that you're worth the weight of eternity. 💖",
+            "Even more, your existence is rooted in the blood of God ✝️. I would speak of your untamable soul and your unbreakable spirit 🌟.",
+            "And I'd tell them about your eyes—yes, those eyes 👀 that see only the very best in people. I'd talk about your smile 😍, a smile so warm it could thaw more hearts than anyone ever could 🐿️💛.",
+            "If time allowed, I'd tell them about your heart ❤️, about how it has more rooms than air can find, with veins flowing with kindness and love.",
+            "I would say that you are a masterpiece 🎨✨, a confluence of art and divinity, crafted by the Master Himself.",
+            "But if I were pressed for time ⏳, I would just slow down, look into your eyes 👁️👁️, and whisper:",
+            "<span style='font-size:1.2rem; color:#ff9dbb;'>\"Baby, baby, you're the one—the one the Good Shepherd would leave the 99 for… 🥰💞\"</span>"
+        ];
+
+        let currentLine = 0;
+        let currentChar = 0;
+        const messageDiv = document.getElementById('messageContent');
+        
+        function typeWriter() {
+            if (currentLine < fullMessage.length) {
+                const line = fullMessage[currentLine];
+                
+                if (currentChar < line.length) {
+                    if (currentChar === 0) {
+                        const p = document.createElement('p');
+                        p.innerHTML = line.charAt(currentChar);
+                        messageDiv.appendChild(p);
+                        currentChar++;
+                    } else {
+                        const lastP = messageDiv.lastChild;
+                        if (lastP && lastP.tagName === 'P') {
+                            lastP.innerHTML += line.charAt(currentChar);
+                            currentChar++;
+                        }
+                    }
+                    setTimeout(typeWriter, 25);
+                } else {
+                    currentLine++;
+                    currentChar = 0;
+                    setTimeout(typeWriter, 150);
+                }
+            }
+        }
+        
+        setTimeout(typeWriter, 300);
+        
+        // Create particles
+        for(let i = 0; i < 100; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'glow-particle';
+            particle.style.width = (Math.random() * 5 + 1) + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = Math.random() * 5 + 3 + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(particle);
+        }
+        
+        const hearts = ['❤️', '💖', '💗', '💓', '💕', '💝'];
+        for(let i = 0; i < 50; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = Math.random() * 25 + 12 + 'px';
+            heart.style.animationDuration = Math.random() * 7 + 4 + 's';
+            heart.style.animationDelay = Math.random() * 8 + 's';
+            document.body.appendChild(heart);
+
+
+
+
+        }
+        
+
+
+ let audio = null;
+        
+        function initMusic() {
+            audio = new Audio();
+            audio.loop = true;
+            audio.volume = 0.3;
+            audio.src = 'all-of-me.mp3';
+            audio.addEventListener('error', function() {
+                // Fallback to online piano cover if local file not found
+                audio.src = 'John Legend - All of Me (Lyrics) - 7clouds (youtube).mp3';
+                audio.load();
+                audio.play().catch(e => console.log('Auto-play attempt'));
+            });
+            
+            // Auto-play music
+            audio.play().catch(e => {
+                console.log('Auto-play blocked, will play on user interaction');
+                document.body.addEventListener('click', function playOnce() {
+                    audio.play();
+                    document.body.removeEventListener('click', playOnce);
+                }, { once: true });
+            });
+        }
+
+
+
+
+        function goBack() { window.location.href = 'index.html'; }
+        function goNext() { window.location.href = 'birthday-wishes.html'; }
+    </script>
+    <script src="music.js"></script>
+</body>
+</html>
